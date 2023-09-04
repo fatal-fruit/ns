@@ -134,7 +134,7 @@ func reserveCmd() *cobra.Command {
 				return err
 			}
 
-			msg := &nstypes.MsgReserve{
+			msg := &nstypes.MsgBid{
 				Name:           args[0],
 				ResolveAddress: args[1],
 				Owner:          sender.String(),

@@ -34,7 +34,7 @@ var _ = math.Inf
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 // MsgReserve represents a message to purchase a namespace.
-type MsgReserve struct {
+type MsgBid struct {
 	// name defines the human readable address
 	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	// resolveAddress defines the bech32 address to resolve to
@@ -45,18 +45,18 @@ type MsgReserve struct {
 	Amount github_com_cosmos_cosmos_sdk_types.Coins `protobuf:"bytes,4,rep,name=amount,proto3,castrepeated=github.com/cosmos/cosmos-sdk/types.Coins" json:"amount"`
 }
 
-func (m *MsgReserve) Reset()         { *m = MsgReserve{} }
-func (m *MsgReserve) String() string { return proto.CompactTextString(m) }
-func (*MsgReserve) ProtoMessage()    {}
-func (*MsgReserve) Descriptor() ([]byte, []int) {
+func (m *MsgBid) Reset()         { *m = MsgBid{} }
+func (m *MsgBid) String() string { return proto.CompactTextString(m) }
+func (*MsgBid) ProtoMessage()    {}
+func (*MsgBid) Descriptor() ([]byte, []int) {
 	return fileDescriptor_c0075a375a07b0e2, []int{0}
 }
-func (m *MsgReserve) XXX_Unmarshal(b []byte) error {
+func (m *MsgBid) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgReserve) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgBid) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgReserve.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgBid.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -66,40 +66,40 @@ func (m *MsgReserve) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 		return b[:n], nil
 	}
 }
-func (m *MsgReserve) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgReserve.Merge(m, src)
+func (m *MsgBid) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgBid.Merge(m, src)
 }
-func (m *MsgReserve) XXX_Size() int {
+func (m *MsgBid) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgReserve) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgReserve.DiscardUnknown(m)
+func (m *MsgBid) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgBid.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgReserve proto.InternalMessageInfo
+var xxx_messageInfo_MsgBid proto.InternalMessageInfo
 
-func (m *MsgReserve) GetName() string {
+func (m *MsgBid) GetName() string {
 	if m != nil {
 		return m.Name
 	}
 	return ""
 }
 
-func (m *MsgReserve) GetResolveAddress() string {
+func (m *MsgBid) GetResolveAddress() string {
 	if m != nil {
 		return m.ResolveAddress
 	}
 	return ""
 }
 
-func (m *MsgReserve) GetOwner() string {
+func (m *MsgBid) GetOwner() string {
 	if m != nil {
 		return m.Owner
 	}
 	return ""
 }
 
-func (m *MsgReserve) GetAmount() github_com_cosmos_cosmos_sdk_types.Coins {
+func (m *MsgBid) GetAmount() github_com_cosmos_cosmos_sdk_types.Coins {
 	if m != nil {
 		return m.Amount
 	}
@@ -107,21 +107,21 @@ func (m *MsgReserve) GetAmount() github_com_cosmos_cosmos_sdk_types.Coins {
 }
 
 // MsgSendResponse defines the Msg/Reserve response type.
-type MsgReserveResponse struct {
+type MsgBidResponse struct {
 }
 
-func (m *MsgReserveResponse) Reset()         { *m = MsgReserveResponse{} }
-func (m *MsgReserveResponse) String() string { return proto.CompactTextString(m) }
-func (*MsgReserveResponse) ProtoMessage()    {}
-func (*MsgReserveResponse) Descriptor() ([]byte, []int) {
+func (m *MsgBidResponse) Reset()         { *m = MsgBidResponse{} }
+func (m *MsgBidResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgBidResponse) ProtoMessage()    {}
+func (*MsgBidResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_c0075a375a07b0e2, []int{1}
 }
-func (m *MsgReserveResponse) XXX_Unmarshal(b []byte) error {
+func (m *MsgBidResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *MsgReserveResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *MsgBidResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_MsgReserveResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_MsgBidResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -131,53 +131,52 @@ func (m *MsgReserveResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, 
 		return b[:n], nil
 	}
 }
-func (m *MsgReserveResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MsgReserveResponse.Merge(m, src)
+func (m *MsgBidResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgBidResponse.Merge(m, src)
 }
-func (m *MsgReserveResponse) XXX_Size() int {
+func (m *MsgBidResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *MsgReserveResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_MsgReserveResponse.DiscardUnknown(m)
+func (m *MsgBidResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgBidResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_MsgReserveResponse proto.InternalMessageInfo
+var xxx_messageInfo_MsgBidResponse proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*MsgReserve)(nil), "fatal_fruit.ns.v1.MsgReserve")
-	proto.RegisterType((*MsgReserveResponse)(nil), "fatal_fruit.ns.v1.MsgReserveResponse")
+	proto.RegisterType((*MsgBid)(nil), "fatal_fruit.ns.v1.MsgBid")
+	proto.RegisterType((*MsgBidResponse)(nil), "fatal_fruit.ns.v1.MsgBidResponse")
 }
 
 func init() { proto.RegisterFile("fatal_fruit/ns/v1/tx.proto", fileDescriptor_c0075a375a07b0e2) }
 
 var fileDescriptor_c0075a375a07b0e2 = []byte{
-	// 404 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x51, 0xcf, 0x8b, 0xda, 0x40,
-	0x14, 0x4e, 0xfc, 0x55, 0x3a, 0x85, 0x82, 0x83, 0xd0, 0x18, 0x30, 0x8a, 0x50, 0x10, 0xc1, 0x19,
-	0x62, 0xe9, 0xa1, 0x3d, 0xb5, 0xf6, 0x2c, 0x85, 0xf4, 0x56, 0x28, 0x92, 0xe8, 0x38, 0x86, 0x9a,
-	0x19, 0xc9, 0x1b, 0xd3, 0xf6, 0x56, 0x7a, 0xea, 0xb1, 0x7f, 0x46, 0xe9, 0xc9, 0x43, 0xff, 0x08,
-	0x8f, 0xb2, 0xa7, 0x3d, 0xed, 0x2e, 0x7a, 0xf0, 0xdf, 0x58, 0x92, 0x8c, 0xab, 0xec, 0x2e, 0xbb,
-	0x97, 0xe4, 0xcd, 0xfb, 0xbe, 0xf7, 0xbd, 0xf7, 0xbe, 0x87, 0xec, 0xa9, 0xaf, 0xfc, 0xf9, 0x68,
-	0x1a, 0x2f, 0x43, 0x45, 0x05, 0xd0, 0xc4, 0xa5, 0xea, 0x3b, 0x59, 0xc4, 0x52, 0x49, 0x5c, 0x3d,
-	0xc1, 0x88, 0x00, 0x92, 0xb8, 0xf6, 0x8b, 0xb1, 0x84, 0x48, 0x02, 0x8d, 0x80, 0xa7, 0xd4, 0x08,
-	0x78, 0xce, 0xb5, 0x6b, 0x5c, 0x72, 0x99, 0x85, 0x34, 0x8d, 0x74, 0xd6, 0xd1, 0xf4, 0xc0, 0x07,
-	0x46, 0x13, 0x37, 0x60, 0xca, 0x77, 0xe9, 0x58, 0x86, 0x42, 0xe3, 0x55, 0x3f, 0x0a, 0x85, 0xa4,
-	0xd9, 0x57, 0xa7, 0x1a, 0xf7, 0x0c, 0xf4, 0x63, 0xc1, 0x40, 0xc3, 0xf5, 0x5c, 0x71, 0x94, 0xb7,
-	0xca, 0x1f, 0x39, 0xd4, 0xfe, 0x5d, 0x40, 0x68, 0x08, 0xdc, 0x63, 0xc0, 0xe2, 0x84, 0x61, 0x8c,
-	0x4a, 0xc2, 0x8f, 0x98, 0x65, 0xb6, 0xcc, 0xce, 0x53, 0x2f, 0x8b, 0xf1, 0x3b, 0xf4, 0x3c, 0x66,
-	0x20, 0xe7, 0x09, 0x7b, 0x3f, 0x99, 0xc4, 0x0c, 0xc0, 0x2a, 0xa4, 0xe8, 0xc0, 0x3a, 0xfb, 0xdf,
-	0xab, 0x69, 0x31, 0x8d, 0x7c, 0x52, 0x71, 0x28, 0xb8, 0x77, 0x8b, 0x8f, 0x09, 0x2a, 0xcb, 0x6f,
-	0x82, 0xc5, 0x56, 0xf1, 0x91, 0xc2, 0x9c, 0x86, 0x67, 0xa8, 0xe2, 0x47, 0x72, 0x29, 0x94, 0x55,
-	0x6a, 0x15, 0x3b, 0xcf, 0xfa, 0x75, 0xa2, 0xd9, 0xa9, 0x25, 0x44, 0x5b, 0x42, 0x3e, 0xc8, 0x50,
-	0x0c, 0x5e, 0xaf, 0x2f, 0x9a, 0xc6, 0xbf, 0xcb, 0x66, 0x87, 0x87, 0x6a, 0xb6, 0x0c, 0xc8, 0x58,
-	0x46, 0x7a, 0x41, 0xfd, 0xeb, 0xc1, 0xe4, 0xab, 0x36, 0x23, 0x2d, 0x80, 0xbf, 0xfb, 0x55, 0xd7,
-	0xf4, 0xb4, 0xfe, 0x5b, 0xf4, 0x6b, 0xbf, 0xea, 0xe6, 0x5d, 0xdb, 0x35, 0x84, 0x8f, 0x4e, 0x78,
-	0x0c, 0x16, 0x52, 0x00, 0xeb, 0x7f, 0x41, 0xc5, 0x21, 0x70, 0xfc, 0x11, 0x3d, 0x39, 0x78, 0xd4,
-	0x20, 0x77, 0x4e, 0x4c, 0x8e, 0x85, 0xf6, 0xcb, 0x07, 0xe1, 0x83, 0xae, 0x5d, 0xfe, 0x99, 0x0e,
-	0x32, 0x78, 0xb3, 0xde, 0x3a, 0xe6, 0x66, 0xeb, 0x98, 0x57, 0x5b, 0xc7, 0xfc, 0xb3, 0x73, 0x8c,
-	0xcd, 0xce, 0x31, 0xce, 0x77, 0x8e, 0xf1, 0xb9, 0x79, 0xb2, 0x51, 0xa6, 0xd8, 0xbb, 0x39, 0x6f,
-	0xb6, 0x4e, 0x50, 0xc9, 0x2e, 0xf8, 0xea, 0x3a, 0x00, 0x00, 0xff, 0xff, 0x97, 0xf8, 0x73, 0x90,
-	0x8e, 0x02, 0x00, 0x00,
+	// 398 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x51, 0xcf, 0xee, 0xd2, 0x40,
+	0x10, 0x6e, 0x29, 0x90, 0xb8, 0x26, 0x44, 0x1a, 0x12, 0x4b, 0x13, 0x0b, 0x72, 0x22, 0x24, 0xec,
+	0xa6, 0x18, 0x0f, 0x7a, 0xd2, 0x72, 0xe6, 0x60, 0xbd, 0x79, 0x21, 0x2d, 0x5d, 0x96, 0x46, 0xba,
+	0x4b, 0x3a, 0x4b, 0xd5, 0x9b, 0x31, 0x3e, 0x80, 0x8f, 0x61, 0x3c, 0x71, 0xf0, 0x21, 0x38, 0x12,
+	0x4f, 0x9e, 0xd4, 0xc0, 0x81, 0xd7, 0x30, 0xed, 0xae, 0x86, 0xfc, 0xfe, 0xe4, 0x77, 0x69, 0x67,
+	0xe7, 0xfb, 0xe6, 0x9b, 0x99, 0x6f, 0x90, 0xbb, 0x8c, 0x64, 0xb4, 0x9e, 0x2f, 0xf3, 0x6d, 0x2a,
+	0x09, 0x07, 0x52, 0xf8, 0x44, 0xbe, 0xc7, 0x9b, 0x5c, 0x48, 0x61, 0xb7, 0x2f, 0x30, 0xcc, 0x01,
+	0x17, 0xbe, 0xfb, 0x70, 0x21, 0x20, 0x13, 0x40, 0x32, 0x60, 0x25, 0x35, 0x03, 0xa6, 0xb8, 0x6e,
+	0x87, 0x09, 0x26, 0xaa, 0x90, 0x94, 0x91, 0xce, 0x7a, 0x9a, 0x1e, 0x47, 0x40, 0x49, 0xe1, 0xc7,
+	0x54, 0x46, 0x3e, 0x59, 0x88, 0x94, 0x6b, 0xbc, 0x1d, 0x65, 0x29, 0x17, 0xa4, 0xfa, 0xea, 0xd4,
+	0xa3, 0x1b, 0x06, 0xfa, 0xb0, 0xa1, 0xa0, 0xe1, 0xae, 0x52, 0x9c, 0xab, 0x56, 0xea, 0xa1, 0xa0,
+	0xc1, 0xe7, 0x1a, 0x6a, 0xce, 0x80, 0x05, 0x69, 0x62, 0xdb, 0xa8, 0xce, 0xa3, 0x8c, 0x3a, 0x66,
+	0xdf, 0x1c, 0xde, 0x0b, 0xab, 0xd8, 0x7e, 0x81, 0x5a, 0x39, 0x05, 0xb1, 0x2e, 0xe8, 0xcb, 0x24,
+	0xc9, 0x29, 0x80, 0x53, 0x2b, 0xd1, 0xc0, 0xf9, 0xf1, 0x7d, 0xdc, 0xd1, 0x42, 0x1a, 0x79, 0x2d,
+	0xf3, 0x94, 0xb3, 0xf0, 0x0a, 0xdf, 0xc6, 0xa8, 0x21, 0xde, 0x71, 0x9a, 0x3b, 0xd6, 0x1d, 0x85,
+	0x8a, 0x66, 0xaf, 0x50, 0x33, 0xca, 0xc4, 0x96, 0x4b, 0xa7, 0xde, 0xb7, 0x86, 0xf7, 0x27, 0x5d,
+	0xac, 0xd9, 0xa5, 0x1d, 0x58, 0xdb, 0x81, 0xa7, 0x22, 0xe5, 0xc1, 0xd3, 0xfd, 0xaf, 0x9e, 0xf1,
+	0xed, 0x77, 0x6f, 0xc8, 0x52, 0xb9, 0xda, 0xc6, 0x78, 0x21, 0x32, 0xbd, 0x9c, 0xfe, 0x8d, 0x21,
+	0x79, 0xab, 0x8d, 0x28, 0x0b, 0xe0, 0xeb, 0x79, 0x37, 0x32, 0x43, 0xad, 0xff, 0x1c, 0x7d, 0x3a,
+	0xef, 0x46, 0xaa, 0xeb, 0xe0, 0x01, 0x6a, 0x29, 0x17, 0x42, 0x0a, 0x1b, 0xc1, 0x81, 0x4e, 0x5e,
+	0x21, 0x6b, 0x06, 0xcc, 0x9e, 0x22, 0xab, 0xf4, 0xa6, 0x8b, 0xaf, 0x9d, 0x15, 0xab, 0x02, 0xf7,
+	0xf1, 0xad, 0xd0, 0x3f, 0x2d, 0xb7, 0xf1, 0xb1, 0x6c, 0x1c, 0x3c, 0xdb, 0x1f, 0x3d, 0xf3, 0x70,
+	0xf4, 0xcc, 0x3f, 0x47, 0xcf, 0xfc, 0x72, 0xf2, 0x8c, 0xc3, 0xc9, 0x33, 0x7e, 0x9e, 0x3c, 0xe3,
+	0x4d, 0xef, 0x62, 0x83, 0x4a, 0x6d, 0xfc, 0xff, 0x94, 0xd5, 0xf8, 0x71, 0xb3, 0xba, 0xd6, 0x93,
+	0xbf, 0x01, 0x00, 0x00, 0xff, 0xff, 0xe4, 0x0a, 0x34, 0x16, 0x7a, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -194,7 +193,7 @@ const _ = grpc.SupportPackageIsVersion4
 type MsgClient interface {
 	// Reserve defines a method to buy a namespace with an associated bech32
 	// address to resolve to.
-	Reserve(ctx context.Context, in *MsgReserve, opts ...grpc.CallOption) (*MsgReserveResponse, error)
+	Bid(ctx context.Context, in *MsgBid, opts ...grpc.CallOption) (*MsgBidResponse, error)
 }
 
 type msgClient struct {
@@ -205,9 +204,9 @@ func NewMsgClient(cc grpc1.ClientConn) MsgClient {
 	return &msgClient{cc}
 }
 
-func (c *msgClient) Reserve(ctx context.Context, in *MsgReserve, opts ...grpc.CallOption) (*MsgReserveResponse, error) {
-	out := new(MsgReserveResponse)
-	err := c.cc.Invoke(ctx, "/fatal_fruit.ns.v1.Msg/Reserve", in, out, opts...)
+func (c *msgClient) Bid(ctx context.Context, in *MsgBid, opts ...grpc.CallOption) (*MsgBidResponse, error) {
+	out := new(MsgBidResponse)
+	err := c.cc.Invoke(ctx, "/fatal_fruit.ns.v1.Msg/Bid", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -218,35 +217,35 @@ func (c *msgClient) Reserve(ctx context.Context, in *MsgReserve, opts ...grpc.Ca
 type MsgServer interface {
 	// Reserve defines a method to buy a namespace with an associated bech32
 	// address to resolve to.
-	Reserve(context.Context, *MsgReserve) (*MsgReserveResponse, error)
+	Bid(context.Context, *MsgBid) (*MsgBidResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
 type UnimplementedMsgServer struct {
 }
 
-func (*UnimplementedMsgServer) Reserve(ctx context.Context, req *MsgReserve) (*MsgReserveResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Reserve not implemented")
+func (*UnimplementedMsgServer) Bid(ctx context.Context, req *MsgBid) (*MsgBidResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Bid not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
 	s.RegisterService(&_Msg_serviceDesc, srv)
 }
 
-func _Msg_Reserve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgReserve)
+func _Msg_Bid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgBid)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).Reserve(ctx, in)
+		return srv.(MsgServer).Bid(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/fatal_fruit.ns.v1.Msg/Reserve",
+		FullMethod: "/fatal_fruit.ns.v1.Msg/Bid",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).Reserve(ctx, req.(*MsgReserve))
+		return srv.(MsgServer).Bid(ctx, req.(*MsgBid))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -256,15 +255,15 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Reserve",
-			Handler:    _Msg_Reserve_Handler,
+			MethodName: "Bid",
+			Handler:    _Msg_Bid_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "fatal_fruit/ns/v1/tx.proto",
 }
 
-func (m *MsgReserve) Marshal() (dAtA []byte, err error) {
+func (m *MsgBid) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -274,12 +273,12 @@ func (m *MsgReserve) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgReserve) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgBid) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgReserve) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgBid) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -322,7 +321,7 @@ func (m *MsgReserve) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *MsgReserveResponse) Marshal() (dAtA []byte, err error) {
+func (m *MsgBidResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -332,12 +331,12 @@ func (m *MsgReserveResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *MsgReserveResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *MsgBidResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *MsgReserveResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *MsgBidResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -356,7 +355,7 @@ func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	dAtA[offset] = uint8(v)
 	return base
 }
-func (m *MsgReserve) Size() (n int) {
+func (m *MsgBid) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -383,7 +382,7 @@ func (m *MsgReserve) Size() (n int) {
 	return n
 }
 
-func (m *MsgReserveResponse) Size() (n int) {
+func (m *MsgBidResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -398,7 +397,7 @@ func sovTx(x uint64) (n int) {
 func sozTx(x uint64) (n int) {
 	return sovTx(uint64((x << 1) ^ uint64((int64(x) >> 63))))
 }
-func (m *MsgReserve) Unmarshal(dAtA []byte) error {
+func (m *MsgBid) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -421,10 +420,10 @@ func (m *MsgReserve) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgReserve: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgBid: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgReserve: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgBid: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -578,7 +577,7 @@ func (m *MsgReserve) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *MsgReserveResponse) Unmarshal(dAtA []byte) error {
+func (m *MsgBidResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -601,10 +600,10 @@ func (m *MsgReserveResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: MsgReserveResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: MsgBidResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: MsgReserveResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: MsgBidResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		default:

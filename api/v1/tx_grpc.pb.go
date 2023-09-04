@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Msg_Reserve_FullMethodName = "/fatal_fruit.ns.v1.Msg/Reserve"
+	Msg_Bid_FullMethodName = "/fatal_fruit.ns.v1.Msg/Bid"
 )
 
 // MsgClient is the client API for Msg service.
@@ -28,7 +28,7 @@ const (
 type MsgClient interface {
 	// Reserve defines a method to buy a namespace with an associated bech32
 	// address to resolve to.
-	Reserve(ctx context.Context, in *MsgReserve, opts ...grpc.CallOption) (*MsgReserveResponse, error)
+	Bid(ctx context.Context, in *MsgBid, opts ...grpc.CallOption) (*MsgBidResponse, error)
 }
 
 type msgClient struct {
@@ -39,9 +39,9 @@ func NewMsgClient(cc grpc.ClientConnInterface) MsgClient {
 	return &msgClient{cc}
 }
 
-func (c *msgClient) Reserve(ctx context.Context, in *MsgReserve, opts ...grpc.CallOption) (*MsgReserveResponse, error) {
-	out := new(MsgReserveResponse)
-	err := c.cc.Invoke(ctx, Msg_Reserve_FullMethodName, in, out, opts...)
+func (c *msgClient) Bid(ctx context.Context, in *MsgBid, opts ...grpc.CallOption) (*MsgBidResponse, error) {
+	out := new(MsgBidResponse)
+	err := c.cc.Invoke(ctx, Msg_Bid_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -54,7 +54,7 @@ func (c *msgClient) Reserve(ctx context.Context, in *MsgReserve, opts ...grpc.Ca
 type MsgServer interface {
 	// Reserve defines a method to buy a namespace with an associated bech32
 	// address to resolve to.
-	Reserve(context.Context, *MsgReserve) (*MsgReserveResponse, error)
+	Bid(context.Context, *MsgBid) (*MsgBidResponse, error)
 	mustEmbedUnimplementedMsgServer()
 }
 
@@ -62,8 +62,8 @@ type MsgServer interface {
 type UnimplementedMsgServer struct {
 }
 
-func (UnimplementedMsgServer) Reserve(context.Context, *MsgReserve) (*MsgReserveResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Reserve not implemented")
+func (UnimplementedMsgServer) Bid(context.Context, *MsgBid) (*MsgBidResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Bid not implemented")
 }
 func (UnimplementedMsgServer) mustEmbedUnimplementedMsgServer() {}
 
@@ -78,20 +78,20 @@ func RegisterMsgServer(s grpc.ServiceRegistrar, srv MsgServer) {
 	s.RegisterService(&Msg_ServiceDesc, srv)
 }
 
-func _Msg_Reserve_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(MsgReserve)
+func _Msg_Bid_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgBid)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(MsgServer).Reserve(ctx, in)
+		return srv.(MsgServer).Bid(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Msg_Reserve_FullMethodName,
+		FullMethod: Msg_Bid_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MsgServer).Reserve(ctx, req.(*MsgReserve))
+		return srv.(MsgServer).Bid(ctx, req.(*MsgBid))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -104,8 +104,8 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Reserve",
-			Handler:    _Msg_Reserve_Handler,
+			MethodName: "Bid",
+			Handler:    _Msg_Bid_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

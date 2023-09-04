@@ -17,7 +17,7 @@ func NewMsgServerImpl(keeper Keeper) nstypes.MsgServer {
 	return &msgServer{k: keeper}
 }
 
-func (ms msgServer) Reserve(goCtx context.Context, msg *nstypes.MsgReserve) (*nstypes.MsgReserveResponse, error) {
+func (ms msgServer) Bid(goCtx context.Context, msg *nstypes.MsgBid) (*nstypes.MsgBidResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
 	if err := ms.k.checkAvailability(ctx, msg.Name); err != nil {
@@ -33,5 +33,5 @@ func (ms msgServer) Reserve(goCtx context.Context, msg *nstypes.MsgReserve) (*ns
 		return nil, err
 	}
 
-	return &nstypes.MsgReserveResponse{}, nil
+	return &nstypes.MsgBidResponse{}, nil
 }

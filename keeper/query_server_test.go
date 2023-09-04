@@ -12,7 +12,7 @@ func TestQueryParams(t *testing.T) {
 	f := initFixture(t)
 	require := require.New(t)
 
-	nameRes := &nstypes.MsgReserve{
+	nameRes := &nstypes.MsgBid{
 		"bob.cosmos",
 		f.addrs[0].String(),
 		f.addrs[1].String(),
@@ -23,7 +23,7 @@ func TestQueryParams(t *testing.T) {
 		"bob.cosmos",
 	}
 
-	_, err := f.msgServer.Reserve(f.ctx, nameRes)
+	_, err := f.msgServer.Bid(f.ctx, nameRes)
 	require.NoError(err)
 	resp, err := f.queryServer.Name(f.ctx, nameReq)
 	require.NoError(err)

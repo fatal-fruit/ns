@@ -13,12 +13,12 @@ func TestMsgReserve(t *testing.T) {
 
 	testCases := []struct {
 		name         string
-		request      *nstypes.MsgReserve
+		request      *nstypes.MsgBid
 		expectErrMsg string
 	}{
 		{
 			name:         "Success",
-			request:      &nstypes.MsgReserve{},
+			request:      &nstypes.MsgBid{},
 			expectErrMsg: "",
 		},
 	}
@@ -26,7 +26,7 @@ func TestMsgReserve(t *testing.T) {
 	for _, tc := range testCases {
 		tc := tc
 		t.Run(tc.name, func(t *testing.T) {
-			_, err := f.msgServer.Reserve(f.ctx, tc.request)
+			_, err := f.msgServer.Bid(f.ctx, tc.request)
 			if tc.expectErrMsg != "" {
 				require.Error(err)
 				require.ErrorContains(err, tc.expectErrMsg)

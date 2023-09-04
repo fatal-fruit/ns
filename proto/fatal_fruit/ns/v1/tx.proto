@@ -16,11 +16,11 @@ service Msg {
 
   // Reserve defines a method to buy a namespace with an associated bech32
   // address to resolve to.
-  rpc Reserve(MsgReserve) returns (MsgReserveResponse);
+  rpc Bid(MsgBid) returns (MsgBidResponse);
 }
 
 // MsgReserve represents a message to purchase a namespace.
-message MsgReserve {
+message MsgBid {
   option (cosmos.msg.v1.signer) = "owner";
 
   // name defines the human readable address
@@ -41,4 +41,4 @@ message MsgReserve {
 }
 
 // MsgSendResponse defines the Msg/Reserve response type.
-message MsgReserveResponse {}
+message MsgBidResponse {}

@@ -42,7 +42,7 @@ func (k Keeper) checkAvailability(ctx sdk.Context, name string) error {
 	return nil
 }
 
-func (k Keeper) validateAndFormat(ctx sdk.Context, msg *nstypes.MsgReserve) (nstypes.Name, error) {
+func (k Keeper) validateAndFormat(ctx sdk.Context, msg *nstypes.MsgBid) (nstypes.Name, error) {
 	nr := nstypes.Name{}
 
 	sender, err := sdk.AccAddressFromBech32(msg.Owner)
